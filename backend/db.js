@@ -1,44 +1,42 @@
 require("dotenv").config();
 const mysql = require('mysql2');
 
-// configuracion de la conexion a mysql
+//Configuracion de la conexion de la BD
 
-const host = process.env.DB_HOST || 'localhost';
-const port = Number(process.env.DB_PORT) || 3306;
-const user = process.env.DB_USER || "root";
-const password = process.env.DB_PASSWORD || "";
-const database = process.env.DB_NAME || "tienda";
+ const host = process.env.DB_HOST  || "localhost";
+ const port =  Number (process.env.DB_PORT) || 33006;
+ const user = process.env.DB_USER || "root";
+ const password = process.env.DB_PASSWORD || "";
+ const database = process.env.DB_NAME || "tienda";
 
-//opciones de configuracion 
+// OPciones de configuracion
 const configuracion = {
-  host: host,
-  port: port,
-  user: user,
-  password: password,
-  database: database,
+    host,
+    port,
+    user,
+    password,
+    database,
 };
 
+// Si el host es remoto (TiDB Cloud), habilitar el SSL automaticamente
+if (host !== "localhost" && host !== "127.0.0.1"){
+    configuracion.ssl = {
+        minVersion: "TLSv1.2",
+        rejectUnauthorized: true,
+    };
+};
 
-// si el host es remoto (TiDB Cloud) habilitar el SSL automaticamente
-if (host!=="localhost && host !==127.0.0.1") {
-  configuracion.ssl = {
-    minversion: "TLSV1.2",
-    rejectUnauthorized: true  
-  };
-}
+// Crear la conexion con MySQL o TiDB Cloud
+const conexion = mysql.createConnection(configuracion)
 
-// crear la conexion con  mysql o TiDB CLoude 
-const conexion  = mysql.createConnection(configuracion);
+// Comprobamos si la conexion fue exitosa
+conexion.connect((error)=>{
+    if (error){
+        console.error("Error al conectar con  la base de datos", error.message);
+        return;
+    }
+    console.log(`Conexion exitosa con la base de datos (${host}:${port})`);
+})
 
-// comprobamos si la conexion fue exitosa
-conexion.connect((error) => {
-  if (error) {
-    console.error("Error al conectar a la base de datos:", error.message);
-    return;
-  } else {
-    console.log(`conexión exitosa a la base de datos(${host}:${port})`);
-  }
-});
-
-// exportar la conexion para usarla en otros archivos
+//Exportar la conexion para reutilizarla en las rutas de servidor
 module.exports = conexion;

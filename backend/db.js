@@ -22,7 +22,7 @@ const configuracion = {
 // si el host es remoto (TiDB Cloud) habilitar el SSL automaticamente
 if (host!=="localhost && host !==127.0.0.1") {
   configuracion.ssl = {
-    minversion: "TLSV1.2",
+    minversion: "TLSv1.2",
     rejectUnauthorized: true  
   };
 }

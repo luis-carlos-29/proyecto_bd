@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://proyecto-bd-6-81ml.onrender.com";
 
 
 const listaMensajes = document.getElementById("listaMensajes");

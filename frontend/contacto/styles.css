@@ -1,154 +1,383 @@
-/* Estilos base compartidos para la sección de contacto */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #f4f6f9;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f5f8fa;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .contenedor {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* Barra de navegación */
 .navbar {
-  background: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  padding: 1rem 0;
-  margin-bottom: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .nav-contenido {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
 }
 
 .logo {
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #1e293b;
 }
 
 .logo strong {
-  color: #3498db;
+    color: #2563eb;
 }
 
 .nav-links {
-  display: flex;
-  gap: 1.5rem;
+    display: flex;
+    gap: 20px;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  transition: color 0.3s;
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  color: #3498db;
+    color: #2563eb;
 }
 
+/* Contenido principal */
 main {
-  flex: 1;
-  padding-bottom: 3rem;
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.encabezado-principal {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado-principal h1 {
+    font-size: 2rem;
+    color: #0f172a;
+}
+
+.encabezado-principal p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+/* Panel de productos */
+.panel-tienda {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 25px;
+    align-items: start;
+    margin-bottom: 35px;
 }
 
 .tarjeta {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-  margin-bottom: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .tarjeta h2 {
-  margin-bottom: 0.5rem;
-  color: #2c3e50;
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
 }
 
-.subtitulo-contacto {
-  color: #7f8c8d;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-
-.fila-contacto {
-  display: flex;
-  gap: 1rem;
-}
-
-.fila-contacto .campo {
-  flex: 1;
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .campo {
-  margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.campo label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #34495e;
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
 }
 
-.campo input,
-.campo textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #dcdde1;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s;
+input,
+textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.campo input:focus,
-.campo textarea:focus {
-  border-color: #3498db;
+input:focus,
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Botones generales */
 .btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background 0.3s;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.acciones-form {
+    display: flex;
+    gap: 10px;
 }
 
 .btn-guardar {
-  background-color: #3498db;
-  color: white;
-  width: 100%;
+    flex: 1;
+    background-color: #2563eb;
+    color: #ffffff;
 }
 
 .btn-guardar:hover {
-  background-color: #2980b9;
+    background-color: #1d4ed8;
 }
 
-.lista-contactos {
-  margin-top: 1rem;
+.btn-cancelar {
+    background-color: #e2e8f0;
+    color: #475569;
 }
 
+.btn-cancelar:hover {
+    background-color: #cbd5e1;
+}
+
+.btn-contacto {
+    background-color: #0f172a;
+    color: #ffffff;
+    align-self: flex-start;
+    padding: 10px 24px;
+}
+
+.btn-contacto:hover {
+    background-color: #334155;
+}
+
+/* Lista de productos */
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.producto {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.producto h3 {
+    font-size: 1.05rem;
+    color: #0f172a;
+}
+
+.producto p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.producto-precio {
+    font-weight: 700;
+    color: #2563eb;
+    font-size: 1.1rem !important;
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+.acciones button {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-editar {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+.btn-editar:hover {
+    background-color: #cbd5e1;
+}
+
+.btn-eliminar {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-eliminar:hover {
+    background-color: #fca5a5;
+}
+
+/* Sección de contacto */
+.seccion-contacto,
+.seccion-mensajes {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.subtitulo-contacto {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.fila-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.seccion-contacto form {
+    max-width: 800px;
+}
+
+/* Mensajes recibidos */
+#listaContactos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#listaContactos > div {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    overflow-wrap: anywhere;
+    min-width: 0;
+}
+
+#listaContactos h3 {
+    color: #1e293b;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+}
+
+#listaContactos p {
+    color: #475569;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+#listaContactos button {
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 16px;
+    margin-top: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+#listaContactos button:hover {
+    background-color: #b91c1c;
+}
+
+#listaContactos hr {
+    display: none;
+}
+
+/* Pie de página */
 .footer {
-  background: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: auto;
-  font-size: 0.9rem;
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 20px 0;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Diseño para pantallas pequeñas */
+@media (max-width: 768px) {
+    .panel-tienda {
+        grid-template-columns: 1fr;
+    }
+
+    .fila-contacto {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    main {
+        padding: 25px 12px;
+    }
+
+    .tarjeta {
+        padding: 18px;
+    }
+
+    #listaContactos {
+        grid-template-columns: 1fr;
+    }
 }

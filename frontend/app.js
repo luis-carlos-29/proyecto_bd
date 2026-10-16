@@ -1,4 +1,4 @@
-const API_URL = "https://proyecto-bd-1nkk.onrender.com";
+const API_URL = "http://localhost:3000";
 
 // Elementos del DOM
 const listaProductos = document.getElementById("listaProductos");
